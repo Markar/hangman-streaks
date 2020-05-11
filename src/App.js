@@ -3,6 +3,7 @@ import { Hangman } from './components';
 import GuessDisplay from './components/GuessDisplay/GuessDisplay';
 import WordDisplay from './components/WordDisplay/WordDisplay';
 import WinScreen from './components/WinScreen/WinScreen';
+import LoseScreen from './components/LoseScreen/LoseScreen';
 import './App.css';
 
 var wordList = require('an-array-of-english-words');
@@ -13,7 +14,8 @@ const App = () => {
   let [incorrectLetters, setIncorrectLetters] = useState('');
   let [correctLetters, setCorrectLetters] = useState('');
   let [penalty, setPenalty] = useState(0);  
-  let [hasWon, setHasWon] = useState(false);
+
+  let [hasWon, setHasWon] = useState(null);
   let [streak, setStreak] = useState(0);
 
   let remainingGuesses = 10 - (penalty + incorrectLetters.length);
@@ -47,16 +49,19 @@ const App = () => {
     //setHasWon(false) comes from the WinState screen
   }
 
-  function handleSubmit(e) {
+  function handleSubmit(e) {    
+
     if (currentGuess.length > 1) {      
       if (word === currentGuess) {
         // Transition to Win State!      
         resetGame();
-        setHasWon(true);      
-        setStreak(streak++);         
+        setHasWon(true);              
+        let newStreak = streak += 1;
+        setStreak(newStreak);         
       } else {
         // No letters added, and add a penalty
-        setPenalty(penalty++);                
+        let newPenalty = penalty += 1; 
+        setPenalty(newPenalty);                
         setCurrentGuess('');
       }
     } else {
@@ -69,6 +74,13 @@ const App = () => {
       setCurrentGuess('');
     }    
 
+    if (remainingGuesses === 0) {
+      //Transition to Lose State after all of the other states have been resolved
+      setHasWon(false);
+      // Reset streak here, since we don't want to reset it on play again from the win screen
+      setStreak(0);
+    }
+
     e.preventDefault();
   }  
 
@@ -77,6 +89,15 @@ const App = () => {
     if (hasWon) {
       return (
         <WinScreen 
+          setHasWon={setHasWon}
+          streak={streak}
+        />
+      );
+    } 
+    
+    if (hasWon === false) {
+      return (
+        <LoseScreen 
           setHasWon={setHasWon}
           streak={streak}
         />

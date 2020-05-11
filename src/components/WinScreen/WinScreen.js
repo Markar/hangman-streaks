@@ -4,21 +4,24 @@ import './WinScreen.css';
 export default function WinScreen(props) {  
 
   function handlePlayClick(e) {
-    props.setHasWon(false);    
+    props.setHasWon(null);    
   }
 
   function renderStreak() {
-    if (props.streak < 1) {
+    const { streak } = props;
+    console.log('streaks', streak);
+    if (streak < 1) {
       return '';
     }
 
+    let styleObj = {
+      fontSize: 10 + 3*streak
+    };
+
     return (
-      <>
-        <div>
-          You're on a winning steak!
-      </div>
-        <div>
-          {props.streak}
+      <>        
+        <div className='streak--description rainbow' style={styleObj}>
+          You have won {streak} games in a row so far!
         </div>
       </>
     );
@@ -28,7 +31,7 @@ export default function WinScreen(props) {
     <>
       <div className='win--screen'>
         <h1 className=''>
-          <div>You won!</div>
+          <div>You win!</div>
         </h1>
 
         {renderStreak()}
