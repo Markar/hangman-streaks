@@ -8,3 +8,9 @@
   width: 500px;
   margin: 0 auto;
 }
+
+
+.hangman--input {
+  width: 120px;
+  height: 30px;
+}
