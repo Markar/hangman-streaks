@@ -5,8 +5,8 @@ export default function GuessDisplay(props) {
   
   return (     
     <>
-      <div>
-        <label classname='guess--display'>
+      <div className='guess--display'>
+        <label className='wrong--letters'>
           {props.letters || ''}
         </label>        
       </div>        

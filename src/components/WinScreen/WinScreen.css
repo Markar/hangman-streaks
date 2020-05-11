@@ -1,0 +1,21 @@
+.win--screen {
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  align-items: center;  
+  flex-flow: column wrap;    
+}
+
+.win--screen h1 {
+  font-size: 60px;
+}
+
+
+.play--button {
+  height: 30px;
+  width: 150px;  
+  color: white;
+  background-color: #555555;
+  border: none;
+  border-radius: 4px;
+}

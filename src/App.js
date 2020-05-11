@@ -1,55 +1,128 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Hangman } from './components';
 import GuessDisplay from './components/GuessDisplay/GuessDisplay';
-
+import WordDisplay from './components/WordDisplay/WordDisplay';
+import WinScreen from './components/WinScreen/WinScreen';
 import './App.css';
 
-const App = () => {
-  const [incorrectGuesses, setIncorrectGuesses] = useState(0);
-  const [currentGuess, setCurrentGuess] = useState('');
-  const [word, setWord] = useState('hangman');
+var wordList = require('an-array-of-english-words');
 
-  const [guessedLetters, setGuessedLetters] = useState('h');
+const App = () => {
+  let [currentGuess, setCurrentGuess] = useState('');
+  let [word, setWord] = useState('');
+  let [incorrectLetters, setIncorrectLetters] = useState('');
+  let [correctLetters, setCorrectLetters] = useState('');
+  let [penalty, setPenalty] = useState(0);  
+  let [hasWon, setHasWon] = useState(false);
+  let [streak, setStreak] = useState(0);
+
+  let remainingGuesses = 10 - (penalty + incorrectLetters.length);
+  
+  //const wordList = ['rhythm', 'aardvark', 'lenticular', 'display', 'hangman', 'ninja', 'turtle', 'dinosaur', 'alphabet'];  
+
+  useEffect(() => {
+    generateWord();
+  }, []);
+
+  function generateWord() {
+    let ran = Math.floor(Math.random() * wordList.length);
+    console.log('ran', ran, wordList.length);
+    let word = wordList[ran];
+    setWord(word);
+    console.log('word', word);
+  }
 
   function handleGuessChange(e) {
     setCurrentGuess(e.target.value);
+    console.log('guess', currentGuess);
+  }
+
+  function resetGame() {
+    //Reset the state of the game, but maintain the streak    
+    setCurrentGuess('');
+    setIncorrectLetters('');
+    setCorrectLetters('');
+    setPenalty(0);
+    generateWord();
+    //setHasWon(false) comes from the WinState screen
   }
 
   function handleSubmit(e) {
-
-    if (word === currentGuess) {
-      // Transition to Win State!
-      console.log('You win!');
-      return true;
-    }
-
-    if (word.includes(currentGuess)) {
-      //handle guessing the correct letter
+    if (currentGuess.length > 1) {      
+      if (word === currentGuess) {
+        // Transition to Win State!      
+        resetGame();
+        setHasWon(true);      
+        setStreak(streak++);         
+      } else {
+        // No letters added, and add a penalty
+        setPenalty(penalty++);                
+        setCurrentGuess('');
+      }
     } else {
-      setGuessedLetters(guessedLetters += currentGuess);
-      console.log('guessed', guessedLetters);
-    }
+      if (word.includes(currentGuess)) {
+        let correct = correctLetters += currentGuess;
+        setCorrectLetters(correct);        
+      } else {
+        setIncorrectLetters(incorrectLetters += currentGuess);        
+      }
+      setCurrentGuess('');
+    }    
 
+    e.preventDefault();
+  }  
+
+  function renderScreen() {
+    console.log('correct letters', correctLetters);
+    if (hasWon) {
+      return (
+        <WinScreen 
+          setHasWon={setHasWon}
+          streak={streak}
+        />
+      );
+    } else {
+      return (
+        <>
+          <h1>
+            <span>Hangman Streak {streak}</span>
+            <span className='pull-right'>{remainingGuesses}</span>
+          </h1>
+          <Hangman incorrectGuessCount={penalty + incorrectLetters.length}></Hangman>
+
+          <WordDisplay
+            letters={correctLetters}
+            word={word}
+          />
+
+          <GuessDisplay
+            letters={incorrectLetters}
+          />
+
+          <form onSubmit={handleSubmit} className='guess--form'>
+            <label>
+              <div className='guess--text'>
+                What would you like to guess next?
+            </div>
+              <input minLength={1} maxLength={30} onChange={handleGuessChange}
+                id="character-input" className="guess--input" value={currentGuess}
+                autoComplete={"off"} />
+            </label>
+
+            <div>
+              <input type="submit" value="Guess" className='guess--submit' />
+            </div>
+
+          </form>
+        </>
+      );
+    }
   }
-  
-  return (
+
+  return (    
     <div className="App">
       <div className="container">
-        <h1>React Hangman</h1>
-        <Hangman incorrectGuessCount={incorrectGuesses}></Hangman>        
-
-        <form>
-          <label>
-            Guess:            
-            <input minLength={1} maxLength={30} onChange={handleGuessChange} 
-                 id="character-input" className="hangman--input" value={currentGuess} />
-          </label>          
-
-          <input type="submit" value="Submit" onClick={handleSubmit} />
-        </form>
-
-        <GuessDisplay letters={guessedLetters}/>
-
+        {renderScreen()}
       </div>
     </div>
   );

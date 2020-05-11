@@ -1,0 +1,14 @@
+
+.word--display {
+  height: 60px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} 
+
+.correct--letters {    
+  font-size: 40px;
+  align-items: stretch;
+  
+}

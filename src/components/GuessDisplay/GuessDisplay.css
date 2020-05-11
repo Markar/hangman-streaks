@@ -1,4 +1,4 @@
-.guess--display {
+.guess--display .wrong--letters {
   text-decoration: line-through;
-  font-size: 26px;
+  font-size: 40px;
 }

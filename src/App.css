@@ -9,8 +9,41 @@
   margin: 0 auto;
 }
 
+.pull-right {
+  float: right;
+}
 
-.hangman--input {
-  width: 120px;
+
+.guess--form {
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+  flex-flow: column wrap;  
+}
+
+.guess--text {
+   font-size: 20px;
+   font-weight: 500;
+   height: 50px;
+   margin: auto;   
+}
+
+.guess--input {  
+  height: 30px;      
+  width: 100%;
+  margin: auto;  
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  border-bottom: 1px solid #ccc;
+}
+
+.guess--submit {  
   height: 30px;
+  width: 150px;
+  margin-top: 50px;
+  color: white;
+  background-color: #555555;
+  border: none;
+  border-radius: 4px;
 }

@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@csstools/normalize.css": "^10.1.0",
+    "an-array-of-english-words": "^2.0.0",
     "lodash": "^4.17.15",
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
