@@ -10,7 +10,6 @@
   font-size: 60px;
 }
 
-
 .play--button {
   height: 30px;
   width: 150px;  
@@ -23,4 +22,15 @@
 .streak--description {
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+@media all and (max-width: 375px) {
+  .lose--screen h1 {
+    font-size: 40px;
+  }  
+}
+
+.losing-word {
+  margin-top: 15px;
+  font-weight: 400;
 }

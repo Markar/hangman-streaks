@@ -6,3 +6,15 @@
   flex-flow: column wrap;   
   cursor: pointer;
 }
+
+@media all and (max-width: 375px) {
+  .hangman--header {
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    align-items: center;  
+    flex-flow: column wrap;   
+    cursor: pointer;
+    font-size: 12px;
+  }  
+}

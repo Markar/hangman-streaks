@@ -16,9 +16,9 @@ const StartScreen = (props) => {
   let [penalty, setPenalty] = useState(0);  
 
   let [hasWon, setHasWon] = useState(null); //null to start over, false for loss screen, true for win screen
-  let [streak, setStreak] = useState(0);
+  let [streak, setStreak] = useState(15);  
 
-  const attempts = 10;
+  const attempts = 1;
   let [remainingGuesses, setRemainingGuesses] = useState(10);
 
   useEffect(() => {
@@ -77,7 +77,7 @@ const StartScreen = (props) => {
     setRemainingGuesses(attempts);    
 
     if (attempts === 0) {
-      //Transition to Lose State after all of the other states have been resolved
+      //Transition to Lose State after all of the other states have been resolved      
       setHasWon(false);
       resetGame();
       // Reset streak here, since we don't want to reset it on play again from the win screen
@@ -102,6 +102,7 @@ const StartScreen = (props) => {
         <LoseScreen 
           setHasWon={setHasWon}
           streak={streak}
+          word={word}
         />
       );
     } else {

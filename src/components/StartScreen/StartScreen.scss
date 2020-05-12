@@ -56,13 +56,6 @@
   margin-top: 15px;
 }
 
-@media all and (min-width: 1001px) {
-  .App .container {
-    width: 500px;
-    margin: 0 auto;
-  }
-}
-
 @media all and (max-width: 1000px) and (min-width: 700px) {
   .start-screen {
     display: flex;
