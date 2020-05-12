@@ -8,21 +8,21 @@ import LoseScreen from '../LoseScreen/LoseScreen';
 import { generateWord } from '../../utils.js';
 import './Game.css';
 
-const StartScreen = () => {
+const StartScreen = (props) => {
   let [currentGuess, setCurrentGuess] = useState('');
   let [word, setWord] = useState('');
   let [incorrectLetters, setIncorrectLetters] = useState('');
   let [correctLetters, setCorrectLetters] = useState('');
   let [penalty, setPenalty] = useState(0);  
 
-  let [hasWon, setHasWon] = useState(null);
+  let [hasWon, setHasWon] = useState(null); //null to start over, false for loss screen, true for win screen
   let [streak, setStreak] = useState(0);
 
-  const attempts = 3; // inlcusive 
-  let [remainingGuesses, setRemainingGuesses] = useState(3);
+  const attempts = 10;
+  let [remainingGuesses, setRemainingGuesses] = useState(10);
 
   useEffect(() => {
-    generateWord(setWord);
+    generateWord(setWord, props.difficulty);
   }, []);
 
   function handleGuessChange(e) {
@@ -36,7 +36,8 @@ const StartScreen = () => {
     setIncorrectLetters('');
     setCorrectLetters('');
     setPenalty(0);
-    generateWord(setWord);
+    setRemainingGuesses(attempts);
+    generateWord(setWord, props.difficulty);
     //setHasWon(false) comes from the WinState screen
   }
 
@@ -75,6 +76,7 @@ const StartScreen = () => {
     if (attempts === 0) {
       //Transition to Lose State after all of the other states have been resolved
       setHasWon(false);
+      resetGame();
       // Reset streak here, since we don't want to reset it on play again from the win screen
       setStreak(0);
     }    
@@ -103,7 +105,7 @@ const StartScreen = () => {
     } else {
       return (
         <>
-          <h1>
+          <h1 className="game--header">
             <span>Hangman Streak</span>            
           </h1>
           <div>
@@ -126,7 +128,7 @@ const StartScreen = () => {
               <div className='guess--text'>
                 What would you like to guess next?
             </div>
-              <input minLength={1} maxLength={30} onChange={handleGuessChange}
+              <input minLength={1} maxLength={50} onChange={handleGuessChange}
                 id="character-input" className="guess--input" value={currentGuess}
                 autoComplete={"off"} />
             </label>

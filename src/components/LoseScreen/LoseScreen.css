@@ -1,4 +1,4 @@
-.win--screen {
+.lose--screen {
   display: flex;
   margin: auto;
   justify-content: center;
@@ -6,7 +6,7 @@
   flex-flow: column wrap;    
 }
 
-.win--screen h1 {
+.lose--screen h1 {
   font-size: 60px;
 }
 

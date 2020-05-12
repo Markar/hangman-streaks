@@ -1,3 +1,16 @@
+# Mark's Notes
+
+1. I implemented Enzyme testing for the WordDisplay component and used the 
+built in Jest functionality to write tests for utils.js (in utils.test.js)
+
+2. I added some additional functionality to the game including: 
+- The text on the win screen gets larger as you rack up more consecutive wins
+- Start screen with instructions
+- Difficulty settings, with different categories of words
+- Added reach-router to transition from the start screen to the game
+- Keeping track of your win streak through playthroughs to make it more exciting
+- Rainbow text for some flair in a few places
+
 # hangman
 
 Implement the classic [Hangman

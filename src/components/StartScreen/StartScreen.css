@@ -1,44 +1,14 @@
 
-.App {
-  height: 100%;
-  overflow: hidden;
-  padding: 16px;
-}
 
-.App .container {
-  width: 500px;
-  margin: 0 auto;
-}
-
-.pull-right {
-  float: right;
-}
-
-.guess--form {
+.start-screen {
   display: flex;
+  margin: auto;
   justify-content: center;
   align-items: center;  
-  flex-flow: column wrap;  
+  flex-flow: column wrap;    
 }
 
-.guess--text {
-   font-size: 20px;
-   font-weight: 500;
-   height: 50px;
-   margin: auto;   
-}
-
-.guess--input {  
-  height: 30px;      
-  width: 100%;
-  margin: auto;  
-  border-left: none;
-  border-right: none;
-  border-top: none;
-  border-bottom: 1px solid #ccc;
-}
-
-.guess--submit {  
+.start--button {  
   height: 30px;
   width: 150px;
   margin-top: 50px;
@@ -46,4 +16,54 @@
   background-color: #555555;
   border: none;
   border-radius: 4px;
+}
+
+.easy--button {  
+  height: 25px;
+  width: 80px;
+  margin-top: 50px;
+  color: white;
+  background-color: cyan;
+  border: none;
+  border-radius: 4px;
+  margin-right: 15px;
+}
+
+.medium--button {  
+  height: 30px;
+  width: 100px;
+  margin-top: 50px;
+  color: white;
+  background-color: darkturquoise;
+  border: none;
+  border-radius: 4px;
+  margin-right: 15px;
+}
+
+.hard--button {  
+  height: 35px;
+  width: 115px;
+  margin-top: 50px;
+  color: white;
+  background-color: teal;
+  border: none;
+  border-radius: 4px;
+  margin-right: 15px;  
+}
+
+.everything--button {  
+  height: 50px;
+  width: 140px;
+  margin-top: 50px;
+  color: white;
+  background-color: lightgoldenrodyellow;
+  border: none;
+  border-radius: 4px;    
+  font-size: 22px
+}
+
+.difficulty-label {
+  font-weight: 500;
+  font-size: 20px;
+  margin-top: 15px;
 }
