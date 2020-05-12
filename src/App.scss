@@ -22,3 +22,24 @@
   -webkit-background-clip: text;
   background-clip: text;
 }
+
+@media all and (min-width: 1001px) {
+  .App .container {
+    width: 500px;
+    margin: 0 auto;
+  }
+}
+
+@media all and (max-width: 1000px) and (min-width: 700px) {
+  .App .container {
+    width: 300px;
+    margin: 0 auto;
+  }
+}
+
+@media all and (max-width: 375px) {
+  .App .container {
+    width: 250px;
+    margin: 0 auto;
+  }
+}
