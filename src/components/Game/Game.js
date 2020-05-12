@@ -64,7 +64,9 @@ const StartScreen = (props) => {
         let correct = correctLetters += currentGuess;
         setCorrectLetters(correct);        
       } else {
-        setIncorrectLetters(incorrectLetters += currentGuess);        
+        if (incorrectLetters.indexOf(currentGuess) === -1) {
+          setIncorrectLetters(incorrectLetters += currentGuess);        
+        }        
       }
       setCurrentGuess('');
     }    
