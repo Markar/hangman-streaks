@@ -2,7 +2,6 @@
   "name": "hangman-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.com/Markar/titan-hangman",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -10,7 +9,8 @@
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "heroku-postbuild": "npm run build"
   },
   "dependencies": {
     "@csstools/normalize.css": "^10.1.0",
