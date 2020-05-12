@@ -40,6 +40,9 @@ const App = () => {
             Losing will erase your streak
           </li>
           <li>
+            Clicking on the header will reset the game
+          </li>
+          <li>
             Guess the right word to win!
           </li>          
         </ul>
