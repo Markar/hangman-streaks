@@ -18,10 +18,15 @@ export default function WinScreen(props) {
       fontSize: 10 + 3*streak
     };
 
+    let winText = `You have won ${streak} games in a row so far!`;
+    if (streak === 1) {
+      winText = 'You have started a new winning streak!';
+    }
+
     return (
       <>        
         <div className='streak--description rainbow' style={styleObj}>
-          You have won {streak} games in a row so far!
+          {winText}
         </div>
       </>
     );
