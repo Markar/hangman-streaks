@@ -1,0 +1,8 @@
+.hangman--header {
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  align-items: center;  
+  flex-flow: column wrap;   
+  cursor: pointer;
+}

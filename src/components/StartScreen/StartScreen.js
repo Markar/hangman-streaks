@@ -12,7 +12,7 @@ const App = () => {
 
   function handleDifficultyClick(e) {
     let val = e.target.value || e.target.id;
-        
+
     if (!val) {
       return;
     }
@@ -22,9 +22,7 @@ const App = () => {
 
   return (
     <>
-      <div className='start-screen'>
-        <h1>Hangman Streaks</h1>
-
+      <div className='start-screen'>        
         <ul>
           <li>
             Try new letters until you know the word

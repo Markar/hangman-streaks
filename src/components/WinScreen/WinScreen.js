@@ -8,8 +8,7 @@ export default function WinScreen(props) {
   }
 
   function renderStreak() {
-    const { streak } = props;
-    console.log('streaks', streak);
+    const { streak } = props;    
     if (streak < 1) {
       return '';
     }

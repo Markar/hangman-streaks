@@ -24,6 +24,7 @@ export function generateWord(setWord, difficulty) {
   let ran = Math.floor(Math.random() * wordList.length);    
   let word = wordList[ran];
   setWord(word);
-  console.log('word', word);
+  // used for debugging
+  // console.log('word', word);
   return wordList;
 }

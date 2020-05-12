@@ -26,8 +26,7 @@ const StartScreen = (props) => {
   }, []);
 
   function handleGuessChange(e) {
-    setCurrentGuess(e.target.value);
-    console.log('guess', currentGuess);
+    setCurrentGuess(e.target.value);    
   }
 
   function resetGame() {
@@ -84,8 +83,7 @@ const StartScreen = (props) => {
     e.preventDefault();
   }  
 
-  function renderScreen() {
-    console.log('correct letters', correctLetters);
+  function renderScreen() {    
     if (hasWon) {
       return (
         <WinScreen 
@@ -105,9 +103,6 @@ const StartScreen = (props) => {
     } else {
       return (
         <>
-          <h1 className="game--header">
-            <span>Hangman Streak</span>            
-          </h1>
           <div>
             {streak} wins
             <span className='pull-right'>{remainingGuesses} tries left</span>
