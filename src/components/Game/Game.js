@@ -46,6 +46,7 @@ const StartScreen = (props) => {
   }
 
   function handleSubmit(e) {    
+    currentGuess = currentGuess.toLowerCase();
 
     if (currentGuess.length > 1) {      
       if (word === currentGuess) {
