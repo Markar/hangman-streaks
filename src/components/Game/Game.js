@@ -36,7 +36,7 @@ const StartScreen = (props) => {
     setCorrectLetters('');
     setPenalty(0);
     setRemainingGuesses(attempts);
-    generateWord(setWord, props.difficulty);
+    generateWord(setWord, props.difficulty);    
     //setHasWon(false) comes from the WinState screen
   }
 
@@ -53,6 +53,8 @@ const StartScreen = (props) => {
         setHasWon(true);              
         let newStreak = streak += 1;
         setStreak(newStreak);         
+        e.preventDefault();
+        return;
       } else {
         // No letters added, and add a penalty
         let newPenalty = penalty += 1; 
@@ -71,7 +73,7 @@ const StartScreen = (props) => {
       setCurrentGuess('');
     }    
 
-    let attempts = getAttempts();    
+    let attempts = getAttempts();        
     setRemainingGuesses(attempts);    
 
     if (attempts === 0) {
@@ -127,7 +129,7 @@ const StartScreen = (props) => {
             </div>
               <input minLength={1} maxLength={50} onChange={handleGuessChange}
                 id="character-input" className="guess--input" value={currentGuess}
-                autoComplete={"off"} />
+                autoComplete={"off"} autoFocus ref={input => input && input.focus()} />
             </label>
 
             <div>

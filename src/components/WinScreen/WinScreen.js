@@ -13,8 +13,13 @@ export default function WinScreen(props) {
       return '';
     }
 
+    let size = 16;
+    size += 8*streak;
+    if (size > 60) 
+      size = 60;
+
     let styleObj = {
-      fontSize: 10 + 3*streak
+      fontSize: size
     };
 
     let winText = `You have won ${streak} games in a row so far!`;
@@ -41,7 +46,7 @@ export default function WinScreen(props) {
         {renderStreak()}
 
         <div>
-          <button onClick={handlePlayClick} className='play--button'>
+          <button onClick={handlePlayClick} autoFocus className='play--button'>
             Play Again?
         </button>
         </div>
