@@ -2,7 +2,7 @@
 
 .App {
   height: 100%;
-  overflow: hidden;
+  overflow: scroll;
   padding: 16px;
 }
 
@@ -27,6 +27,7 @@
   .App .container {
     width: 500px;
     margin: 0 auto;
+    margin-bottom: 30px;
   }
 }
 
@@ -34,6 +35,15 @@
   .App .container {
     width: 300px;
     margin: 0 auto;
+    margin-bottom: 30px;
+  }
+}
+
+@media all and (max-width: 500px) {
+  .App .container {
+    width: 250px;
+    margin: 0 auto;
+    margin-bottom: 30px;
   }
 }
 
@@ -41,5 +51,14 @@
   .App .container {
     width: 250px;
     margin: 0 auto;
+    margin-bottom: 30px;
+  }
+}
+
+@media all and (max-width: 320px) {
+  .App .container {
+    width: 200px;
+    margin: 0 auto;
+    margin-bottom: 30px;
   }
 }
