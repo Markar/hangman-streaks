@@ -4,9 +4,9 @@ import GuessDisplay from './components/GuessDisplay/GuessDisplay';
 import WordDisplay from './components/WordDisplay/WordDisplay';
 import WinScreen from './components/WinScreen/WinScreen';
 import LoseScreen from './components/LoseScreen/LoseScreen';
-import './App.css';
 
-var wordList = require('an-array-of-english-words');
+import { generateWord } from './utils.js';
+import './App.css';
 
 const App = () => {
   let [currentGuess, setCurrentGuess] = useState('');
@@ -18,21 +18,13 @@ const App = () => {
   let [hasWon, setHasWon] = useState(null);
   let [streak, setStreak] = useState(0);
 
-  let remainingGuesses = 10 - (penalty + incorrectLetters.length);
-  
-  //const wordList = ['rhythm', 'aardvark', 'lenticular', 'display', 'hangman', 'ninja', 'turtle', 'dinosaur', 'alphabet'];  
+  let remainingGuesses = 10 - (penalty + incorrectLetters.length);  
 
   useEffect(() => {
-    generateWord();
+    generateWord(setWord);
   }, []);
 
-  function generateWord() {
-    let ran = Math.floor(Math.random() * wordList.length);
-    console.log('ran', ran, wordList.length);
-    let word = wordList[ran];
-    setWord(word);
-    console.log('word', word);
-  }
+
 
   function handleGuessChange(e) {
     setCurrentGuess(e.target.value);
@@ -45,7 +37,7 @@ const App = () => {
     setIncorrectLetters('');
     setCorrectLetters('');
     setPenalty(0);
-    generateWord();
+    generateWord(setWord);
     //setHasWon(false) comes from the WinState screen
   }
 
@@ -106,9 +98,12 @@ const App = () => {
       return (
         <>
           <h1>
-            <span>Hangman Streak {streak}</span>
-            <span className='pull-right'>{remainingGuesses}</span>
+            <span>Hangman Streak</span>            
           </h1>
+          <div>
+            {streak} wins
+            <span className='pull-right'>{remainingGuesses} tries left</span>
+          </div>
           <Hangman incorrectGuessCount={penalty + incorrectLetters.length}></Hangman>
 
           <WordDisplay
