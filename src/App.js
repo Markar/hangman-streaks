@@ -3,7 +3,7 @@ import { Router } from "@reach/router";
 import StartScreen from './components/StartScreen/StartScreen';
 import Game from './components/Game/Game';
 import Header from './components/Header/Header';
-import './App.css';
+import './App.scss';
 
 const App = () => {    
 

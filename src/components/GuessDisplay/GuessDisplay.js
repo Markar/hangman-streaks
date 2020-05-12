@@ -1,5 +1,5 @@
 import React from 'react';
-import './GuessDisplay.css';
+import './GuessDisplay.scss';
 
 export default function GuessDisplay(props) {    
   

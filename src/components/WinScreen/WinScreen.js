@@ -1,5 +1,5 @@
 import React from 'react';
-import './WinScreen.css';
+import './WinScreen.scss';
 
 export default function WinScreen(props) {  
 

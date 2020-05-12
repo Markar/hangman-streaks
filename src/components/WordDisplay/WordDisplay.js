@@ -1,5 +1,5 @@
 import React from 'react';
-import './WordDisplay.css';
+import './WordDisplay.scss';
 
 export default function WordDisplay(props) {        
   let renderWord = '';

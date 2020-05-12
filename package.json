@@ -2,18 +2,21 @@
   "name": "hangman-app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://github.com/Markar/titan-hangman",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "@csstools/normalize.css": "^10.1.0",
     "an-array-of-english-words": "^2.0.0",
     "lodash": "^4.17.15",
+    "node-sass": "^4.14.1",
     "prop-types": "^15.7.2",
     "reach-router": "0.0.0",
     "react": "^16.9.0",

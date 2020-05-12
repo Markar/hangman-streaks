@@ -6,7 +6,7 @@ import WinScreen from '../WinScreen/WinScreen';
 import LoseScreen from '../LoseScreen/LoseScreen';
 
 import { generateWord } from '../../utils.js';
-import './Game.css';
+import './Game.scss';
 
 const StartScreen = (props) => {
   let [currentGuess, setCurrentGuess] = useState('');

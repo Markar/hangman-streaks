@@ -1,6 +1,6 @@
 import React from 'react';
 import { navigate } from "@reach/router";
-import './Header.css';
+import './Header.scss';
 
 const App = () => {  
 

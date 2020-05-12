@@ -1,5 +1,5 @@
 import React from 'react';
-import './LoseScreen.css';
+import './LoseScreen.scss';
 
 export default function LoseScreen(props) {  
 

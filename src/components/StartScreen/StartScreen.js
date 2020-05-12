@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { navigate } from "@reach/router";
-import './StartScreen.css';
+import './StartScreen.scss';
 
 const App = () => {
 
@@ -48,10 +48,10 @@ const App = () => {
         </ul>
 
         <div>
-          <button className='easy--button' value={'Easy'} onClick={handleDifficultyClick}>Easy</button>
-          <button className='medium--button' value={'Medium'} onClick={handleDifficultyClick}>Medium</button>
-          <button className='hard--button' value={'Hard'} onClick={handleDifficultyClick}>Hard</button>
-          <button className='everything--button' value={'Everything'} onClick={handleDifficultyClick}>
+          <button className='easy hangman-btn' value={'Easy'} onClick={handleDifficultyClick}>Easy</button>
+          <button className='medium hangman-btn' value={'Medium'} onClick={handleDifficultyClick}>Medium</button>
+          <button className='hard hangman-btn' value={'Hard'} onClick={handleDifficultyClick}>Hard</button>
+          <button className='everything hangman-btn' value={'Everything'} onClick={handleDifficultyClick}>
             <span className='rainbow' id={'Everything'}>Everything!</span>
           </button>
         </div>
@@ -60,7 +60,7 @@ const App = () => {
           Difficulty: {difficulty}
         </div>
 
-        <button className='start--button' onClick={handlePlay}>Play</button>
+        <button className='hangman-btn start' onClick={handlePlay}>Play</button>
 
       </div>
     </>
