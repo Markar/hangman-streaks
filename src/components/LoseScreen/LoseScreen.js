@@ -54,7 +54,7 @@ export default function LoseScreen(props) {
         </div>
 
         <div>
-          <button onClick={handlePlayClick} className='play--button'>
+          <button onClick={handlePlayClick} className='play--button' autoFocus>
             Play Again?
         </button>
         </div>
