@@ -5,9 +5,20 @@ import './StartScreen.scss';
 const App = () => {
 
   const [difficulty, setDifficulty] = useState('Medium'); 
+  const [language, setLanguage] = useState('English');
 
   function handlePlay() {
-    navigate(`/game/${difficulty}`);
+    navigate(`/game/${difficulty}/${language}`);
+  }
+
+  function handleLanguageClick(e) {
+    let val = e.target.value || e.target.id;
+
+    if (!val) {
+      return;
+    }
+
+    setLanguage(val);
   }
 
   function handleDifficultyClick(e) {
@@ -48,6 +59,11 @@ const App = () => {
         </ul>
 
         <div>
+          <button className='english hangman-btn' value={'English'} onClick={handleLanguageClick}>English</button>
+          <button className='italian hangman-btn' value={'Italian'} onClick={handleLanguageClick}>Italian</button>
+        </div>
+
+        <div>
           <button className='easy hangman-btn' value={'Easy'} onClick={handleDifficultyClick}>Easy</button>
           <button className='medium hangman-btn' value={'Medium'} onClick={handleDifficultyClick}>Medium</button>
           <button className='hard hangman-btn' value={'Hard'} onClick={handleDifficultyClick}>Hard</button>
@@ -57,7 +73,7 @@ const App = () => {
         </div>
         
         <div className='difficulty-label'>
-          Difficulty: {difficulty}
+          {difficulty} {language}
         </div>
 
         <button className='hangman-btn start' onClick={handlePlay}>Play</button>

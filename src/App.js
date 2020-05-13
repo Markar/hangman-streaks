@@ -13,7 +13,7 @@ const App = () => {
       <Header />
         <Router>          
           <StartScreen path="/" />
-          <Game path="/game/:difficulty"/>
+          <Game path="/game/:difficulty/:language"/>
         </Router>
       </div>
     </div>

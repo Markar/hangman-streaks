@@ -10,7 +10,7 @@ const App = () => {
   
   return (
     <>
-      <div className='hangman--header'>
+      <div className='hangman--header rainbow'>
         <h1 onClick={handleClick}>Hangman Streaks</h1>
       </div>
     </>

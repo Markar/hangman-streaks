@@ -23,7 +23,7 @@ const StartScreen = (props) => {
   let [remainingGuesses, setRemainingGuesses] = useState(attempts);
 
   useEffect(() => {
-    generateWord(setWord, props.difficulty);
+    generateWord(setWord, props.difficulty, props.language);
   }, []);
 
   function handleGuessChange(e) {
@@ -37,7 +37,7 @@ const StartScreen = (props) => {
     setCorrectLetters('');
     setPenalty(0);
     setRemainingGuesses(attempts);
-    generateWord(setWord, props.difficulty);    
+    generateWord(setWord, props.difficulty, props.language);    
     //setHasWon(false) comes from the WinState screen
   }
 
