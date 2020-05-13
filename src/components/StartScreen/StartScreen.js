@@ -34,24 +34,15 @@ const App = () => {
   return (
     <>
       <div className='start-screen'>        
-        <ul>
+        <ul className='instructions-ul'>
           <li>
             Try new letters until you know the word
-          </li>
+          </li>                    
           <li>
-            Guessing the wrong word will cost you a strike
-          </li>
+            Winning will add to your streak, and losing will erase it
+          </li>          
           <li>
-            The number of strikes is displayed in the top right
-          </li>
-          <li>
-            Winning will add to your streak
-          </li>
-          <li>
-            Losing will erase your streak
-          </li>
-          <li>
-            Clicking on the header will reset the game
+            Click at the top to reset the game
           </li>
           <li>
             Guess the right word to win!

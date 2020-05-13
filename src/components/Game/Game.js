@@ -129,7 +129,7 @@ const StartScreen = (props) => {
           <form onSubmit={handleSubmit} className='guess--form'>
             <label>
               <div className='guess--text'>
-                What would you like to guess next?
+                What letter or word would you like to guess next?
             </div>
               <input minLength={1} maxLength={50} onChange={handleGuessChange}
                 id="character-input" className="guess--input" value={currentGuess}

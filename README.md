@@ -10,6 +10,17 @@ built in Jest functionality to write tests for utils.js (in utils.test.js)
 - Added reach-router to transition from the start screen to the game
 - Keeping track of your win streak through playthroughs to make it more exciting
 - Rainbow text for some flair in a few places
+- Italian word libraries
+- Mobile support
+
+# TODO: 
+- Add a sqlite db to store win streaks
+- Add an input for player name to save
+- Move streak info from lose screen to win screen once high scores are available
+- Add more game modes with varying numbers of strikes
+- Add different types of visualization
+
+
 
 # hangman
 
