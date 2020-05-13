@@ -7,21 +7,23 @@ const easyWordList = [
  'man', 'girl', 'woman', 'school', 'meat', 'beef', 'purple', 'corn', 'mountain', 'ape', 
  'gape', 'grape', 'plate', 'fart', 'ear', 'soup', 'zoo', 'boo', 'blow', 'bone', 'phone',
  'brick', 'block', 'head', 'hair', 'glass', 'cup', 'toe', 'elbow', 'knee', 'buddy', 'friend', 
- 'bird', 'baby', 'poo', 'cartoon', 'box'
+ 'bird', 'baby', 'poo', 'cartoon', 'box', 'emu', 'mash', 'dig', 'big', 'pig', 'poop'
 ];
 const mediumWordList = [
-  'calendar', 'giraffe', 'binoculars', 'digger', 'rapper', 'donkey', 'supernova', 'hangman', 'principal', 'zebra', 
+  'calendar', 'giraffe', 'binoculars', 'rapper', 'donkey', 'supernova', 'hangman', 'principal', 'zebra', 
   'rattlesnake', 'pizza', 'bread', 'broccoli', 'banana', 'vaporize', 'vampire', 'plane', 'planet', 'forest', 'city', 
   'gorge', 'canyon', 'clown', 'own', 'giggle', 'surgeon', 'doctor', 'coconut', 'category', 'human', 'plankton', 'mouse',
-  'squeak', 'princess', 'prince', 'crown', 'throne', 'dagger', 'arrow', 'bolt', 'relic', 'artifact', 'pirate', 'loot'
+  'squeak', 'princess', 'prince', 'crown', 'throne', 'dagger', 'arrow', 'bolt', 'relic', 'artifact', 'pirate', 'loot', 
+  'massacre', 'destroy', 'clash'
 ];
 const hardWordList = [
   'rhythm', 'aardvark', 'lenticular', 'display', 'ninja', 'turtle', 'dinosaur', 'alphabet', 'xylophone', 'zilch', 'lambast', 'bamboo',
   'wish', 'superstition', 'myth', 'cuneiform', 'guide', 'guise', 'guild', 'metropolis', 'gorge', 'chirurgeon', 'eloquent', 'embezzle',
   'razzle', 'enmity', 'erudite', 'fabricate', 'extricate', 'feral', 'flabbergasted', 'aghast', 'despot', 'forsake', 'haughty', 'hypocrisy', 
   'placate', 'solar', 'meticulous', 'modicum', 'inflection', 'obsequious', 'oblivion', 'panacea', 'cornucopia', 'serendipity', 'taciturn', 
-  'sycophant', 'superfluous', 'fluidity', 'umbral', 'truculent', 'translucent', 'vociverous', 'zenith', 'accretion', 'aperture', 'atmosphere', 
-  'azimuth', 'zenith', 'debris', 'eclipse', 'ellipse', 'ephemeral', 'electromagnetic', 'evolution', 'galaxy', 'supernova', 'corpse', 'grave'
+  'sycophant', 'superfluous', 'fluidity', 'umbral', 'truculent', 'translucent', 'vociferous', 'zenith', 'accretion', 'aperture', 'atmosphere', 
+  'azimuth', 'zenith', 'debris', 'eclipse', 'ellipse', 'ephemeral', 'electromagnetic', 'evolution', 'galaxy', 'supernova', 'corpse', 'grave',
+  'cassowary', 'opalescent', 'pulverize', 
 ];  
 
 const easyItalian = [
@@ -44,7 +46,7 @@ const hardItalian = [
 
 export function generateWord(setWord, difficulty, language = 'english') {
   
-  let wordList = fullWordList;
+  let wordList = mediumWordList;
 
   if (language === 'English') {
     if (difficulty === 'Easy') {
@@ -57,6 +59,9 @@ export function generateWord(setWord, difficulty, language = 'english') {
       wordList = hardWordList;
     }
     if (difficulty === 'Everything') {
+      wordList = easyWordList.concat(mediumWordList, hardWordList);
+    }
+    if (difficulty === 'Dictionary') {
       wordList = fullWordList;
     }
   }
@@ -72,6 +77,9 @@ export function generateWord(setWord, difficulty, language = 'english') {
       wordList = hardItalian;
     }
     if (difficulty === 'Everything') {
+      wordList = easyItalian.concat(mediumItalian, hardItalian);
+    }
+    if (difficulty === 'Dictionary') {
       wordList = fullItalian;
     }
   }
@@ -79,7 +87,7 @@ export function generateWord(setWord, difficulty, language = 'english') {
   let ran = Math.floor(Math.random() * wordList.length);    
   let word = wordList[ran];
   setWord(word);
-  // used for debugging
+  // used for debugging  
   // console.log('word', word);
   return wordList;
 }
