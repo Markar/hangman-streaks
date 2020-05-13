@@ -8,11 +8,18 @@
   flex-flow: column wrap;    
 }
 
+.difficulty-label {
+  font-weight: $base-text__bold;
+  font-size: 24px;
+  margin-top: 15px;
+  color: $base-font__color;
+}
+
 .instructions-ul {
   list-style-type: none;
   font-size: 18px;
-  font-weight: 500;
-  color: darkslategrey;  
+  font-weight: $base-text__bold;
+  color: $base-font__color;  
   
   li {
     margin-top: 5px;
@@ -73,12 +80,6 @@
     background-color: $everything-btn;    
     font-size: 22px
   }
-}
-
-.difficulty-label {
-  font-weight: 500;
-  font-size: 20px;
-  margin-top: 15px;
 }
 
 @media all and (max-width: 1000px) and (min-width: 700px) {

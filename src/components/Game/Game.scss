@@ -1,3 +1,4 @@
+@import '../variables.scss';
 
 .guess--form {
   display: flex;
@@ -8,7 +9,8 @@
 
 .guess--text {
    font-size: 20px;
-   font-weight: 500;
+   font-weight: $base-text__bold;
+   color: $base-font__color;
    height: 50px;
    margin: auto;   
    margin-top: 25px;
@@ -34,4 +36,10 @@
   background-color: #555555;
   border: none;
   border-radius: 4px;
+}
+
+.game--info {
+  color: $base-font__color;
+  font-size: 18px;
+  font-weight: $base-text__bold;
 }

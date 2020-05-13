@@ -42,11 +42,11 @@ export default function LoseScreen(props) {
   return (
     <>
       <div className='lose--screen'>
-        <h1 className=''>
+        <h1 className='lose--main-text'>
           <div>You lost :(</div>
         </h1>
 
-        <div>
+        <div className='lose--streak-text'>
           {getText(props.streak)}
         </div>
         <div className='losing-word'>          

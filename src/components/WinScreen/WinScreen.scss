@@ -1,3 +1,5 @@
+@import '../variables.scss';
+
 .win--screen {
   display: flex;
   margin: auto;
@@ -8,6 +10,10 @@
 
 .win--screen h1 {
   font-size: 60px;
+}
+
+.win-main-text {
+  color: $base-font__color;
 }
 
 .play--button {

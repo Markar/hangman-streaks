@@ -39,7 +39,7 @@ export default function WinScreen(props) {
   return (
     <>
       <div className='win--screen'>
-        <h1 className=''>
+        <h1 className='win-main-text'>
           <div>You win!</div>
         </h1>
 

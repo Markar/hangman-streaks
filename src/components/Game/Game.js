@@ -15,7 +15,7 @@ const StartScreen = (props) => {
   let [correctLetters, setCorrectLetters] = useState('');
   let [penalty, setPenalty] = useState(0);  
 
-  let [hasWon, setHasWon] = useState(null); //null to start over, false for loss screen, true for win screen
+  let [hasWon, setHasWon] = useState(true); //null to start over, false for loss screen, true for win screen
   let [streak, setStreak] = useState(0);  
   let [losingWord, setLosingWord] = useState('');
 
@@ -111,7 +111,7 @@ const StartScreen = (props) => {
     } else {
       return (
         <>
-          <div>
+          <div className='game--info'>
             {streak} wins
             <span className='pull-right'>{remainingGuesses} tries left</span>
           </div>
