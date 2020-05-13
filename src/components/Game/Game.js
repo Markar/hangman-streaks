@@ -41,37 +41,51 @@ const StartScreen = (props) => {
     //setHasWon(false) comes from the WinState screen
   }
 
+  function win(e) {          
+    // Transition to Win State!      
+    resetGame();
+    setHasWon(true);              
+    let newStreak = streak += 1;
+    setStreak(newStreak);         
+
+    e.preventDefault();
+    return;      
+  }
+
   function getAttempts() {
     return attempts - (penalty + incorrectLetters.length);
   }
 
   function handleSubmit(e) {    
-    currentGuess = currentGuess.toLowerCase();
+    currentGuess = currentGuess.toLowerCase();    
 
     if (currentGuess.length > 1) {      
-      if (word === currentGuess) {
-        // Transition to Win State!      
-        resetGame();
-        setHasWon(true);              
-        let newStreak = streak += 1;
-        setStreak(newStreak);         
-        e.preventDefault();
-        return;
+      if (word === currentGuess) {        
+        win(e);        
       } else {
         // No letters added, and add a penalty
         let newPenalty = penalty += 1; 
         setPenalty(newPenalty);                
         setCurrentGuess('');
       }
-    } else {
+    } else {      
       if (word.includes(currentGuess)) {
+        // Add correct letters
         let correct = correctLetters += currentGuess;
         setCorrectLetters(correct);        
       } else {
+        // Add incorrect letters, but ignore duplicates
         if (incorrectLetters.indexOf(currentGuess) === -1) {
           setIncorrectLetters(incorrectLetters += currentGuess);        
         }        
       }
+      
+      if (correctLetters === word) {
+        // Automatically transition to win state if they have guessed all of the letters
+        // so they don't have to retype the whole word        
+        win(e);
+      }
+
       setCurrentGuess('');
     }    
 
