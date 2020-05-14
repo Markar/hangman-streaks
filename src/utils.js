@@ -14,7 +14,7 @@ const mediumWordList = [
   'rattlesnake', 'pizza', 'bread', 'broccoli', 'banana', 'vaporize', 'vampire', 'plane', 'planet', 'forest', 'city', 
   'gorge', 'canyon', 'clown', 'own', 'giggle', 'surgeon', 'doctor', 'coconut', 'category', 'human', 'plankton', 'mouse',
   'squeak', 'princess', 'prince', 'crown', 'throne', 'dagger', 'arrow', 'bolt', 'relic', 'artifact', 'pirate', 'loot', 
-  'massacre', 'destroy', 'clash'
+  'massacre', 'destroy', 'clash', 'troll', 'ogre', 'giant', 'dragon', 
 ];
 const hardWordList = [
   'rhythm', 'aardvark', 'lenticular', 'display', 'ninja', 'turtle', 'dinosaur', 'alphabet', 'xylophone', 'zilch', 'lambast', 'bamboo',
