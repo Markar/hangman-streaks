@@ -2,7 +2,7 @@ import React from 'react';
 import { navigate } from "@reach/router";
 import './Header.scss';
 
-const App = () => {  
+const Header = () => {  
 
   function handleClick() {
     navigate(`/`);
@@ -17,4 +17,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default Header;
