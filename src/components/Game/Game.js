@@ -8,7 +8,7 @@ import LoseScreen from '../LoseScreen/LoseScreen';
 import { generateWord } from '../../utils.js';
 import './Game.scss';
 
-const StartScreen = (props) => {
+export default function Game(props) {  
   let [currentGuess, setCurrentGuess] = useState('');
   let [word, setWord] = useState('');
   let [incorrectLetters, setIncorrectLetters] = useState('');
@@ -177,5 +177,3 @@ const StartScreen = (props) => {
     </>
   );
 };
-
-export default StartScreen;
