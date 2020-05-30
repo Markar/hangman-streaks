@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import { navigate } from "@reach/router";
 import './StartScreen.scss';
 
-export default function StartScreen(props) {  
+export function StartScreen(props) {  
 
   const [difficulty, setDifficulty] = useState('Medium'); 
   const [language, setLanguage] = useState('English');

@@ -1,7 +1,7 @@
 import React from 'react';
 import './WordDisplay.scss';
 
-export default function WordDisplay(props) {        
+export function WordDisplay(props) {        
   let renderWord = '';
   let { letters, word } = props;
   //letters a
@@ -16,7 +16,6 @@ export default function WordDisplay(props) {
   }
 
   return (         
-
     <>
       <div className='word--display'>
         <span className='correct--letters'>
@@ -24,6 +23,5 @@ export default function WordDisplay(props) {
         </span>        
       </div>        
     </>   
-    
   );
 };

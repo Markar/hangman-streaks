@@ -1,7 +1,7 @@
 import React from 'react';
 import './WinScreen.scss';
 
-export default function WinScreen(props) {  
+export function WinScreen(props) {  
 
   function handlePlayClick(e) {
     props.setHasWon(null);    

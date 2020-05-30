@@ -1,7 +1,7 @@
 import React from 'react';
 import './LoseScreen.scss';
 
-export default function LoseScreen(props) {  
+export function LoseScreen(props) {  
 
   function handlePlayClick(e) {
     props.setHasWon(null);    

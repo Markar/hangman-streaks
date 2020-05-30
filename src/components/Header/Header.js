@@ -2,7 +2,7 @@ import React from 'react';
 import { navigate } from "@reach/router";
 import './Header.scss';
 
-export default function Header() {  
+export function Header() {  
 
   function handleClick() {
     navigate(`/`);

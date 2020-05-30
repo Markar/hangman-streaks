@@ -1,7 +1,7 @@
 import React from 'react';
 import './GuessDisplay.scss';
 
-export default function GuessDisplay(props) {    
+export function GuessDisplay(props) {    
   
   return (     
     <>
